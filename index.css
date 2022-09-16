@@ -1,0 +1,837 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: #f5f5f5;
+}
+ul, li, dl, dt, dd {
+	list-style: none;
+}
+li {
+	text-align: center;
+}
+.clear::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+a {
+	text-decoration: none;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+s {
+	text-decoration: line-through;
+}
+
+/* 全局动画 */
+.in:hover {
+	cursor: pointer;
+	transform: translate(0, -6px);
+	box-shadow: 0 3px 8px rgba(0, 21, 41, 0.30);
+}
+/* 右侧悬浮条 */
+.fixed_bar {
+	position: fixed;
+	display: flex;
+	align-items: center;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 35px;
+	background: #0a0a0a;
+	text-align: center;
+	z-index: 2;
+}
+.fixed_bar dl {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	margin-top: -140px;
+}
+.fixed_bar dd {
+	position: relative;
+	padding: 4px 0;
+	margin-bottom: 6px;
+	cursor: pointer;
+}
+.fixed_bar .tips {
+	display: none;
+	position: absolute;
+	opacity: 0;
+	left: -128px;
+	top: 0;
+	width: 71px;
+	padding-left: 15px;
+	height: 34px;
+	line-height: 34px;
+	text-align: left;
+	background: #474747;
+	color: #fff;
+	font-size: 12px;
+	z-index: 3;
+}
+.tips .arrow {
+	width: 0px;
+	height: 0px;
+	border-top: 8px solid transparent;
+	border-left: 8px solid;
+	border-bottom: 8px solid transparent;
+	position: absolute;
+	margin-left: 71px;
+	margin-top: 10px;
+	border-left-color: #474747;
+}
+.fixed_bar i {
+	color: #fff;
+	font-size: 24px;
+}
+.fixed_bar dd {
+	transition: all .2s linear;
+	cursor: pointer;
+}
+.fixed_bar dd:hover {
+	background: #e32330;
+	color: #fff;
+}
+.cart_tip>span {
+	display: inline-block;
+	width: 22px;
+	margin: 0 auto;
+	padding: 13px 2px;
+	font-size: 13px;
+	border-top: 1px solid #323232;
+	border-bottom: 1px solid #323232;
+	color: #fff;
+}
+.cart_tip .active {
+	border-top: 1px solid #e32330;
+	border-bottom: 1px solid #e32330;
+	color: #fff ;
+}
+.cart_tip .active i {
+	color: #fff ;
+}
+.cart_tip .cart_logo2 {
+	color: #e32330;
+	display: inline-block;
+	margin-bottom: 8px;
+}
+.cart_num {
+	display: inline-block;
+	border-radius: 50%;
+	width: 22px;
+	height: 22px;
+	line-height: 22px;
+	background: #df2f3a;
+	color: white;
+	margin-top: 8px;
+}
+.cart_tip:hover .cart_num {
+	background: #0a0a0a;
+	transition: all .2s linear;
+}
+/* 头部导航区域 */
+.wrap {
+	/* overflow: hidden; */
+}
+.nav_wrap {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	box-shadow: 0 5px 4px rgba(0, 21, 41, 0.08);
+	z-index: 1;
+	transform: translate3d(0, -100%, 0);
+	transition: all .4s;
+}
+.nav_wrap.visible {
+	transform: translateZ(0);
+}
+.nav_top_wrap {
+	width: 100%;
+	height: 33px;
+	background: #474747;
+	color: #CCC;
+	font-size: 12px;
+	line-height: 33px;
+}
+.nav_top {
+	width: 1200px;
+	margin: 0 auto;
+}
+.nav_top a {
+	color: #CCC;
+}
+.nav_top a:hover {
+	color: #fff;
+}
+.cart {
+	display: flex;
+	width: 138px;
+	height: 33px;
+	justify-content: center;
+	/* cursor: pointer; */
+	background: #1e1e1e;
+	margin-left: 35px;
+	position: relative;
+}
+.cart_panel {
+	display: none;
+	position: absolute;
+	width: 340px;
+	height: 110px;
+	background: yellow;
+	top: 33px;
+	right: 0;
+	z-index: 2;
+	text-align: center;
+	line-height: 110px;
+	font-size: 14px;
+	color: #666;
+	background: #fafafa;
+	box-shadow: 0 5px 10px rgba(0, 21, 41, 0.08);
+}
+.cart_logo1 {
+	font-size: 18px;
+	color: #db313e;
+	padding-right: 10px;
+}
+.nav_top_wrap .nav_top .cart .active {
+	background: #e32332;
+}
+.nav_top_wrap .nav_top .cart .active span {
+	color: #fff;
+}
+.nav_bottom_wrap {
+	position: relative;
+	width: 100%;
+	height: 101px;
+	background: #fff;
+	border-bottom: 3px solid #de2f3c;
+}
+.nav_bottom {
+	width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	color: #474747;
+}
+.logo {
+	width: 183px;
+	height: 101px;
+	background: #c20315;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+.shop_pic {
+	margin-left: 34px;
+}
+.all_wares {
+	position: relative;
+	width: 175px;
+	height: 101px;
+	margin-left: 50px;
+	z-index: 1;
+	text-align: center;
+	line-height: 101px;
+}
+.all_wares span:nth-child(1) {
+	font-size: 16px;
+	font-weight: 600;
+	color: #E32332;
+}
+.all_wares>a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	color: #474747;
+}
+.wares_list {
+	display: none;
+	position: absolute;
+	background: #fff;
+	z-index: 2;
+}
+.all_wares .wares_list li {
+	width: 175px;
+	height: 40px;
+	line-height: 40px;
+	padding: 0;
+	font-size: 14px;
+	color: #474747;
+	position: relative;
+}
+.wares_list li ul {
+	display: none;
+	background: #f5f5f5;
+	color: #474747;
+	position: absolute;
+	top: 0;
+	left: 175px;
+}
+.all_wares .wares_list li ul li:hover {
+	background: #fff;
+	color: #474747;
+}
+.all_wares .wares_list li:hover {
+	background: #f5f5f5;
+	color: #e90404;
+}
+.nav_bottom .all_wares .active {
+	background: #e32332;
+}
+.nav_bottom .all_wares .active span {
+	color: #fff;
+}
+.nav_bottom li {
+	float: left;
+	padding: 0 15px;
+	font-size: 15px;
+	cursor: pointer;
+}
+.nav_bottom li:hover {
+	color: #e90404;
+}
+.search {
+	width: 320px;
+	height: 41px;
+	margin-left: 30px;
+	position: relative;
+}
+.search .text {
+	width: 263px;
+	height: 39px;
+	line-height: 39px;
+	padding: 0 5px;
+	border: 1px solid #CCC;
+	border-right: 0;
+	outline: none;
+	transition: all .1s linear;
+}
+.search .search_btn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 46px;
+	height: 41px;
+	border: 0;
+	cursor: pointer;
+	background: #e32332 url(http://static.wanmei.com/shop/images/search.png) no-repeat center;
+}
+.search .search_btn:hover {
+	background: #cc0000 url(http://static.wanmei.com/shop/images/search.png) no-repeat center;
+}
+.search .keyword {
+	background: #f5f5f5;
+	position: absolute;
+	top: 1px;
+	right: 56px;
+	margin-top: 6px;
+	font-size: 12px;
+	color: #474747;
+	padding: 5px;
+	cursor: pointer;
+}
+.search .keyword:hover {
+	color: #E90404;
+}
+.search .focus {
+	width: 262px;
+	height: 37px;
+	line-height: 37px;
+	border: 2px solid #e32332;
+	border-right: 0;
+}
+.go_top {
+	position: absolute;
+	bottom: 50px;
+	left: 0;
+	width: 35px;
+	height: 35px;
+	color: #fff;
+	font-size: 12px;
+	transition: all .2s linear;
+	cursor: pointer;
+	opacity: 0;
+}
+.go_top:hover {
+	background: #e32332;
+}
+/* 顶部填充 */
+.content {
+	width: 100%;
+	height: 137px;
+	background: #fff;
+}
+/* 顶部轮播图区域 */
+.header_slider {
+	width: 100%;
+	height: 439px;
+	background: #565656;
+	position: relative;
+}
+.header_slider .wrap {
+	height: 439px;
+	/* width: 1920px; */
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+.header_slider .wrap .box {
+	/* width: 9600px; */
+	width: 100%;
+	height: 439px;
+	position: relative;
+	/* left: -1920px; */
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+.header_slider .wrap .box li {
+	flex-shrink: 0;
+	width: 100%;
+	height: 439px;
+	float: left;
+	/* margin: 0 auto; */
+	/* display: list-item; */
+}
+.change_btn {
+	width: 1200px;
+	height: 80px;
+	margin: 0 auto;
+	position: absolute;
+	top: 180px;
+	left: 50%;
+	margin-left: -600px;
+}
+.change_btn div {
+	width: 47px;
+	height: 80px;
+	text-align: center;
+	line-height: 80px;
+	transition: all .2s linear;
+	border-radius: 2px;
+	cursor: pointer;
+}
+.change_btn div:hover {
+	background: rgba(38,38,38,0.4);;
+}
+.change_btn i {
+	font-size: 50px;
+	color: #ccc;
+}
+
+/* 广告位 */
+.buying {
+	width: 100%;
+	padding-bottom: 40px;
+	background: #fff;
+}
+.buying .wrap {
+	position: relative;
+	padding-top: 146px;
+	width: 1200px;
+	margin: 0 auto;
+}
+.buying .ad_list {
+	position: absolute;
+	top: -14px;
+	left: 0;
+}
+.buying .ad_list div:first-child {
+	margin-left: 0;
+}
+.buying .ad_list div {
+	position: relative;
+	float: left;
+	margin-left: 16px;
+	width: 386px;
+	height: 160px;
+	background: yellow;
+	z-index: 0;
+	transition: all .2s linear;
+}
+/* DOTA2区域 */
+
+/* dota2区域顶部标题 */
+.dota2_area {
+	width: 100%;
+	height: 727px;
+	background: #f5f5f5;
+	color: #474747;
+}
+.dota2_area .wrap {
+	width: 1200px;
+	margin: 0 auto;
+}
+.title_main {
+	padding: 37px 0 20px 0;
+	font-size: 28px;
+	zoom: 1;
+	overflow: hidden;
+}
+.title_main dl {
+	margin-left: 116px;
+}
+.title_main dd {
+	cursor: pointer;
+	margin-right: 5px;
+	padding: 5px 20px 6px 20px;
+	font-size: 16px;
+	color: #e90303;
+	border-bottom: 3px solid #DE2F3C;
+}
+.title_main div {
+	color: #666;
+	font-size: 16px;
+	display: flex;
+	cursor: pointer;
+	margin-top: 10px;
+}
+.title_main div span {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: #999999;
+	border-radius: 50%;
+	text-align: center;
+	color: #fff;
+	margin-top: 1px;
+	margin-left: 5px;
+}
+.title_main div:hover {
+	color: #e90404;
+}
+.title_main div:hover span {
+	background: #DF2F3A;
+}
+/* dota2区域图片商品展示 */
+.dota2_shop div {
+	transition: all .2s linear; 
+}
+.dota2_shop {
+	width: 1200px;
+	margin: 0 auto;
+	
+}
+.dota2_shop .main {
+	width: 949px;
+	margin-left: 25px;
+}
+.dota2_shop .list {
+	position: relative;
+	background: #fff;
+	width: 220px;
+	height: 253px;
+	padding-top: 47px;
+	margin: 0 15px 15px 0;
+	text-align: center;
+	overflow: hidden;
+}
+.dota2_shop .list img {
+	width: 160px;
+	height: 160px;
+}
+.dota2_shop .list .name {
+	font-size: 14px;
+	margin: 15px 15px 5px 15px;
+	max-height: 38px;
+	overflow: hidden;	
+	overflow-wrap: break-word;
+	word-break: break-all;
+}
+.dota2_shop .list .price {
+	font-size: 18px;
+	color: #eb0303;
+	font-family: arial;
+}
+/* 完美世界周边区域 */
+.wrap .list .like {
+	position: absolute;
+	display: flex;
+	vertical-align: middle;
+	top: 18px;
+	right: 15px;
+	color: #999;
+	font-family: arial;
+	line-height: 14px;
+	transition: all .2s linear;
+}
+.wrap .list .like:hover {
+	color: #e90404;
+}
+.list .add {
+	color: #fff;
+	overflow: hidden;
+	width: 100%;
+	height: 80px;
+	padding-top: 10px;
+	margin-top: 0;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	position: absolute;
+	left: 0;
+	bottom: -90px;
+	background: rgba(38,38,38,0.6);
+	transition: all .2s linear;
+}
+.add i {
+	font-size: 20px;
+}
+.add .add_btn {
+	border-radius: 2px;
+	width: 203px;
+	height: 44px;
+	margin: 0 auto;
+	margin-top: 6px;
+	border: 1px solid #fff;
+	line-height: 45px;
+	display: flex;
+	justify-content: center;
+	vertical-align: middle;
+}
+.add .add_btn:hover {
+	background: #E32332;
+	border: 1px solid #E32332;
+}
+.add li {
+	float: left;
+}
+.add ul li:first-child {
+	margin-left: 60px;
+}
+/* CSGO周边区域 */
+.wrap .list s {
+	display: inline-block;
+	margin-left: 7px;
+	vertical-align: middle;
+	font-size: 12px;
+	color: #999;
+}
+/* 玩家热评 */
+.hot_comment .wrap .title_main img {
+	width: 35px;
+	height: 35px;
+}
+.hot_comment {
+	padding-bottom: 25px;
+}
+.hot_comment .wrap {
+	width: 1200px;
+	margin: 0 auto;
+}
+.hot_comment .title_main {
+	padding: 37px 0 20px 0;
+}
+.hot_comment ul {
+	overflow: hidden;
+	zoom: 100%;
+}
+.hot_comment li {
+	float: left;
+	zoom: 1;
+	overflow: hidden;
+	width: 330px;
+	height: 120px;
+	padding: 28px;
+	margin-right: 16px;
+	background: #fff;
+	transition: all .2s linear;
+}
+.hot_comment img {
+	width: 130px;
+	height: 130px;
+	border: 0;
+}
+.hot_comment li .info {
+	width: 184px;
+	margin-left: 15px;
+	line-height: 20px;
+	color: #666;
+}
+.hot_comment li .info .text {
+	height: 81px;
+	overflow: hidden;
+	font-size: 12px;
+}
+.hot_comment li .from {
+	color: #999;
+	font-size: 12px;
+}
+.hot_comment li .from i {
+	display: inline-block;
+	width: 14px;
+	height: 12px;
+	margin-right: 5px;
+	vertical-align: -2px;
+}
+.hot_comment li .from font {
+	padding-left: 5px;
+}
+.hot_comment li .name {
+	font-size: 14px;
+	height: 20px;
+	overflow: hidden;
+}
+.hot_comment li .name .price {
+	color: #ea0406;
+	padding-left: 6px;
+	margin-left: 6px;
+	font-family: arial;
+	border-left: 1px solid #ddd;
+}
+/* about区域 */
+.about {
+	padding: 23px 0 40px;
+	background: #fff;
+	margin-top: 40px;
+}
+.about .wrap {
+	width: 1200px;
+	margin: 0 auto;
+}
+.about ul {
+	margin-bottom: 20px;
+	zoom: 1;
+}
+.about li {
+	float: left;
+	width: 297px;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	font-size: 18px;
+	border-right: 1px solid #e9e9e9;
+	color: #999;
+}
+.about li i {
+	display: inline-block;
+	width: 45px;
+	height: 45px;
+	margin-right: 15px;
+	vertical-align: middle;
+	font-size: 30px;
+	border: 1px solid #ea0406;;
+	border-radius: 50%;
+	color: #ea0406;
+}
+.about .link {
+	padding-top: 40px;
+	border-top: 1px solid #e9e9e9;
+}
+.about dl {
+	float: left;
+	width: 298px;
+	text-indent: 110px;
+}
+.about dt {
+	height: 35px;
+	font-size: 14px;
+}
+.about dd {
+	position: relative;
+	height: 24px;
+	color: #999;
+	font-size: 12px;
+	cursor: pointer;
+}
+.about dd:hover {
+	color: #e90404;
+}
+.about .contact {
+	min-height: 115px;
+	width: 227px;
+	padding-left: 67px;
+	border-left: 1px solid #e9e9e9;
+}
+.about .contact .tel {
+	font-size: 24px;
+	font-family: arial;
+}
+.about .contact .time {
+	padding: 16px 0 24px 0;
+	font-size: 14px;
+	color: #999;
+}
+.about .contact .kf {
+	width: 154px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	color: #ea0f1f;
+	font-size: 16px;
+	border: 1px solid #ff5353;
+	border-radius: 3px;
+	transition: all .2s linear;
+	cursor: pointer;
+}
+.about .contact .kf i {
+	font-size: 20px;
+	vertical-align: -2px;
+}
+.about .contact .kf:hover {
+	background: #e32331;
+	color: #fff;
+}
+.about .contact .tsjb {
+	text-indent: 50px;
+	font-size: 14px;
+	padding: 16px 0 0;
+	cursor: pointer;
+}
+.copyright {
+	padding: 25px 0 30px 0;
+	text-align: center;
+}
+.copyright .wrap {
+	width: 1200px;
+	margin: 0 auto;
+}
+.copyright ul {
+	width: 825px;
+	margin: 0 auto;
+	zoom: 1;
+	overflow: hidden;
+}
+.copyright li {
+	float: left;
+	width: 70px;
+	height: 12px;
+	line-height: 12px;
+	border-right: 1px solid #ddd;
+	text-align: center;
+	margin-right: -1px;
+	font-size: 12px;
+	color: #666;
+	cursor: pointer;
+}
+.copyright li:hover {
+	color: #E90404;
+}
+.copyright .text {
+	padding: 24px 0 15px 0;
+	color: #999;
+	font-size: 12px;
+}
+.copyright .text font {
+	color: #666;
+	cursor: pointer;
+}
+.copyright .text font:hover {
+	color: #E90404;
+}
+.copyright .link img {
+	margin: 0 3px;
+	cursor: pointer;
+}
+
+
+
